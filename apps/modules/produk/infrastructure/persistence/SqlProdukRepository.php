@@ -4,7 +4,6 @@ namespace Phalcon\Init\Produk\Infrastructure\Persistence;
 
 use Phalcon\Init\Produk\Domain\Model\Produk;
 use Phalcon\Init\Produk\Domain\Model\ProdukId;
-use Phalcon\Init\Produk\Domain\Model\Rating;
 use Phalcon\Init\Produk\Domain\Repository\ProdukRepository;
 use PDO;
 use Phalcon\Db\Adapter\Pdo\Mysql;
@@ -29,8 +28,8 @@ class SqlProdukRepository implements ProdukRepository
 
     public function save(Produk $Produk)
     {
-        $statement = sprintf("INSERT INTO Produks(id, title, description, author_name, author_email, votes) VALUES(:id, :title, :description, :author_name, :author_email, :votes)" );
-        $params = ['id' => $Produk->id()->id() , 'title' => $Produk->title(), 'description' => $Produk->description(), 'author_name' => $Produk->author()->name(), 'author_email' => $Produk->author()->email(), 'votes' => 0];
+        $statement = sprintf("INSERT INTO Produks(id, name, description, quantity, price) VALUES(:id, :name, :description, :quantity, :price)" );
+        $params = ['id' => $Produk->id()->id() , 'name' => $Produk->name(), 'description' => $Produk->description(), 'quantity' => $Produk->quantity(), 'price' => $Produk->price()];
 
         return $this->db->execute($statement, $params);
     }
@@ -43,36 +42,29 @@ class SqlProdukRepository implements ProdukRepository
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function allRatings()
+    public function deleteProdukById(ProdukId $id)
     {
-        $statement = sprintf("SELECT * FROM ratings");
+        $sql = "DELETE FROM Produk WHERE id = :id";
 
-        return $this->db->query($statement)
-            ->fetchAll(PDO::FETCH_ASSOC);
+        $this->db->query($sql, [
+            'id' => $id
+        ]);
     }
 
-    public function vote(Produk $Produk)
+    public function update(ProdukId $id, $name,$description,$quantity,$price)
     {
-        $statement = sprintf("UPDATE Produks SET Produks.votes = :votes WHERE Produks.id = :Produk_id");
-        $params = ['votes' => $Produk->votes(), 'Produk_id' => $Produk->id()->id()];
+        $sql = "UPDATE Produk 
+                SET name = :name, description = :description, quantity = :quantity, price = :price
+                WHERE id = :id";
 
-        return $this->db->execute($statement, $params);
+        $this->db->query($sql, [
+            'id' => $id,
+            'name' => $name,
+            'description' => $description,
+            'quantity' => $quantity,
+            'price' => $price
+        ]);
     }
 
-    public function rate(ProdukId $id, Rating $rating)
-    {
-        $statement = sprintf("INSERT INTO ratings(Produk_id, value, name) VALUES(:Produk_id, :value, :name)");
-        $params = ['Produk_id' => $id->id(), 'value' => $rating->value(), 'name' => $rating->user()];
 
-        return $this->db->execute($statement, $params);
-    }
-
-    public function getRatingsByProdukId(ProdukId $id)
-    {
-        $statement = sprintf("SELECT * FROM ratings WHERE Produk_id = :Produk_id");
-        $param = ['Produk_id' => $id->id()];
-
-        return $this->db->query($statement, $param)
-            ->fetchAll(PDO::FETCH_ASSOC);
-    }
 }

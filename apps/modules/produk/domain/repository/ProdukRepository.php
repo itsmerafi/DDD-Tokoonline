@@ -10,5 +10,6 @@ interface ProdukRepository
     public function byId(ProdukId $id);
     public function save(Produk $Produk);
     public function allProduks();
-    public function allRatings();
+    public function deleteProdukById(ProdukId $id);
+    public function update(Produk $id, $name,$description,$quantity,$price);
 }

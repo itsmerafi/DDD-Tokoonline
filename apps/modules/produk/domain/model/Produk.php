@@ -2,17 +2,17 @@
 
 <?php
 
-namespace Idy\Idea\Domain\Model;
+namespace Idy\Produk\Domain\Model;
 
 use Exception;
 use http\Client\Curl\User;
 use Idy\Common\Events\DomainEventPublisher;
-use Idy\Idea\Domain\Exception\InvalidRatingException;
+use Idy\Produk\Domain\Exception\InvalidRatingException;
 
-class Idea
+class Produk
 {
     /**
-     * @var IdeaId
+     * @var ProdukId
      */
     private $id;
     /**
@@ -33,7 +33,7 @@ class Idea
     private $price;
     
 
-    public function __construct(IdeaId $id, $name, $description,$quantity,$price)
+    public function __construct(ProdukId $id, $name, $description,$quantity,$price)
     {
         $this->id = $id;
         $this->name = $name;
@@ -43,9 +43,9 @@ class Idea
     }
 
     /**
-     * @return IdeaId
+     * @return ProdukId
      */
-    public function id() : IdeaId
+    public function id() : ProdukId
     {
         return $this->id;
     }
