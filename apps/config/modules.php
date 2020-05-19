@@ -23,4 +23,15 @@ return array(
         'defaultAction' => 'index'
     ],
 
+    'produk' => [
+        'namespace' => 'Phalcon\Init\Produk',
+        'webControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Web',
+        'apiControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Api',
+        'className' => 'Phalcon\Init\Produk\Module',
+        'path' => APP_PATH . '/modules/produk/Module.php',
+        'defaultRouting' => true,
+        'defaultController' => 'index',
+        'defaultAction' => 'index'
+    ],
+
 );
