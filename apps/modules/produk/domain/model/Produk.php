@@ -1,18 +1,11 @@
 <?php
 
-<?php
+namespace Phalcon\Init\Produk\Domain\Model;
 
-namespace Idy\Idea\Domain\Model;
-
-use Exception;
-use http\Client\Curl\User;
-use Idy\Common\Events\DomainEventPublisher;
-use Idy\Idea\Domain\Exception\InvalidRatingException;
-
-class Idea
+class Produk
 {
     /**
-     * @var IdeaId
+     * @var Id
      */
     private $id;
     /**
@@ -31,23 +24,9 @@ class Idea
      * @var string $price
      */
     private $price;
-    
 
-    
 
-    public function __construct(IdeaId $id, $name, $description,$quantity,$price)
-    {
-        $this->id = $id;
-        $this->name = $name;
-        $this->description = $description;
-        $this->quantity = $quantity;
-        $this->price = $price;
-    }
-
-    /**
-     * @return IdeaId
-     */
-    public function id() : IdeaId
+    public function id()
     {
         return $this->id;
     }
@@ -55,7 +34,7 @@ class Idea
     /**
      * @return string
      */
-    public function name() : string
+    public function name()
     {
         return $this->name;
     }
@@ -63,7 +42,7 @@ class Idea
     /**
      * @return string
      */
-    public function description() : string
+    public function description()
     {
         return $this->description;
     }
@@ -71,7 +50,7 @@ class Idea
     /**
      * @return string
      */
-    public function quantity() : quantity
+    public function quantity()
     {
         return $this->quantity;
     }
@@ -85,8 +64,19 @@ class Idea
         return $this->price;
     }
 
-   
-   
-   
+        public function __construct(ProdukId $id, $name, $description,$quantity,$price)
+        {
+            $this->id = $id;
+            $this->name = $name;
+            $this->description = $description;
+            $this->quantity = $quantity;
+            $this->price = $price;
+        }
+
+
+
+
+
+
 
 }

@@ -1,12 +1,12 @@
 <?php
 
 return array(
-    'backoffice' => [
-        'namespace' => 'Phalcon\Init\BackOffice',
-        'webControllerNamespace' => 'Phalcon\Init\BackOffice\Controllers\Web',
-        'apiControllerNamespace' => 'Phalcon\Init\BackOffice\Controllers\Api',
-        'className' => 'Phalcon\Init\BackOffice\Module',
-        'path' => APP_PATH . '/modules/backoffice/Module.php',
+    'produk' => [
+        'namespace' => 'Phalcon\Init\Produk',
+        'webControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Web',
+        'apiControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Api',
+        'className' => 'Phalcon\Init\Produk\Module',
+        'path' => APP_PATH . '/modules/produk/Module.php',
         'defaultRouting' => true,
         'defaultController' => 'index',
         'defaultAction' => 'index'
@@ -31,17 +31,17 @@ return array(
         'apiControllerNamespace' => 'Phalcon\Init\Cart\Controllers\Api',
         'className' => 'Phalcon\Init\Cart\Module',
         'path' => APP_PATH . '/modules/cart/Module.php',
-        'defaultRouting' => false,
+        'defaultRouting' => true,
         'defaultController' => 'index',
-        'defaultAction' => 'index'
+        'defaultAction' => 'Index'
     ],
 
-    'produk' => [
-        'namespace' => 'Phalcon\Init\Produk',
-        'webControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Web',
-        'apiControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Api',
-        'className' => 'Phalcon\Init\Produk\Module',
-        'path' => APP_PATH . '/modules/produk/Module.php',
+    'backoffice' => [
+        'namespace' => 'Phalcon\Init\BackOffice',
+        'webControllerNamespace' => 'Phalcon\Init\BackOffice\Controllers\Web',
+        'apiControllerNamespace' => 'Phalcon\Init\BackOffice\Controllers\Api',
+        'className' => 'Phalcon\Init\BackOffice\Module',
+        'path' => APP_PATH . '/modules/backoffice/Module.php',
         'defaultRouting' => true,
         'defaultController' => 'index',
         'defaultAction' => 'index'
