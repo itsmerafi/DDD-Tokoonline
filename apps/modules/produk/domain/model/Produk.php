@@ -33,8 +33,6 @@ class Idea
     private $price;
     
 
-    
-
     public function __construct(IdeaId $id, $name, $description,$quantity,$price)
     {
         $this->id = $id;
@@ -84,9 +82,5 @@ class Idea
     {
         return $this->price;
     }
-
-   
-   
-   
 
 }
