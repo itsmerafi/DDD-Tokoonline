@@ -8,12 +8,21 @@ class ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f
 {
     public static $files = array (
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
+        ),
+        'R' => 
+        array (
+            'Ramsey\\Uuid\\' => 12,
+        ),
+        'P' => 
+        array (
+            'PhpOption\\' => 10,
         ),
         'D' => 
         array (
@@ -26,19 +35,17 @@ class ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
+        'Ramsey\\Uuid\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/ramsey/uuid/src',
+        ),
+        'PhpOption\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
         'Dotenv\\' => 
         array (
             0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
-    );
-
-    public static $prefixesPsr0 = array (
-        'P' => 
-        array (
-            'PhpOption\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpoption/phpoption/src',
-            ),
         ),
     );
 
@@ -47,7 +54,6 @@ class ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }

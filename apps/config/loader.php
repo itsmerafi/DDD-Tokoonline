@@ -13,6 +13,7 @@ $loader->registerNamespaces(array(
 	//'Phalcon\Db\Dialect' => APP_PATH . '/lib/Phalcon/Db/Dialect',
 	//'Phalcon\Db\Result' => APP_PATH . '/lib/Phalcon/Db/Result',
 
+    
 ));
 
 $loader->register();

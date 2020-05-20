@@ -1,13 +1,11 @@
 <?php
 
-<?php
-
-namespace Idy\Produk\Domain\Model;
+namespace Phalcon\Init\Produk\Domain\Model;
 
 use Exception;
 use http\Client\Curl\User;
-use Idy\Common\Events\DomainEventPublisher;
-use Idy\Produk\Domain\Exception\InvalidRatingException;
+use Phalcon\Init\Common\Events\DomainEventPublisher;
+use Phalcon\Init\Produk\Domain\Exception\InvalidRatingException;
 
 class Produk
 {
