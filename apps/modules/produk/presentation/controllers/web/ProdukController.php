@@ -14,7 +14,7 @@ class ProdukController extends Controller
     /**
      * @var ViewAllProduksService $viewAllProduksService
      */
-    protected $viewAllProduksService;
+    protected $viewAllProdukService;
     /**
      * @var CreateNewProdukService $createNewProdukService
      */
@@ -30,7 +30,7 @@ class ProdukController extends Controller
 
     public function initialize()
     {
-        $this->viewAllProduksService = $this->di->get('viewAllProduksService');
+        $this->viewAllProduksService = $this->di->get('viewAllProdukService');
         $this->createNewProdukService = $this->di->get('createNewProdukService');
         $this->EditProdukService = $this->di->get('EditProdukService');
         $this->DeleteProdukService = $this->di->get('DeleteProdukService');
@@ -94,16 +94,21 @@ class ProdukController extends Controller
         return $this->response->redirect('');
     }
 
-    public function DeleteAction()
-    {
-        $ProdukId = $this->request->getPost('ProdukId');
-        $value = $this->request->getPost('value');
-        $name = $this->request->getPost('name');
+    public function UpdateAction(){
+        $prodId = $this->request->getPost('ProdukId');
+        $ProdukName = $this->request->getPost('ProdukName');
+        $ProdukDescription = $this->request->getPost('ProdukDescription');
+        $ProdukQuantity = $this->request->getPost('ProdukQuantity');
+        $ProdukPrice = $this->request->getPost('ProdukPrice');
 
-        $request = new DeleteProdukRequest($ProdukId, $value, $name);
-        $response = $this->DeleteProdukService->handle($request);
+        $request = new EditProdukRequest($ProdukId, $ProdukName, $ProdukDescription, $quantity, $price);
+        $response = $this->EditProdukService->handle($request);
 
-        return $this->send($response->getMessage(), $response->getCode());
+        $response->getError()
+            ? $this->flashSession->error($response->getMessage())
+            : $this->flashSession->success($response->getMessage());
+
+        return $this->response->redirect('');
     }
 
 }
