@@ -2,10 +2,15 @@
 
 namespace Phalcon\Init\Produk\Domain\Model;
 
+use Exception;
+use http\Client\Curl\User;
+use Phalcon\Init\Common\Events\DomainEventPublisher;
+use Phalcon\Init\Produk\Domain\Exception\InvalidRatingException;
+
 class Produk
 {
     /**
-     * @var Id
+     * @var ProdukId
      */
     private $id;
     /**
@@ -24,9 +29,21 @@ class Produk
      * @var string $price
      */
     private $price;
+    
 
+    public function __construct(ProdukId $id, $name, $description,$quantity,$price)
+    {
+        $this->id = $id;
+        $this->name = $name;
+        $this->description = $description;
+        $this->quantity = $quantity;
+        $this->price = $price;
+    }
 
-    public function id()
+    /**
+     * @return ProdukId
+     */
+    public function id() : ProdukId
     {
         return $this->id;
     }
@@ -34,7 +51,7 @@ class Produk
     /**
      * @return string
      */
-    public function name()
+    public function name() : string
     {
         return $this->name;
     }
@@ -42,7 +59,7 @@ class Produk
     /**
      * @return string
      */
-    public function description()
+    public function description() : string
     {
         return $this->description;
     }
@@ -50,7 +67,7 @@ class Produk
     /**
      * @return string
      */
-    public function quantity()
+    public function quantity() : quantity
     {
         return $this->quantity;
     }
@@ -63,20 +80,5 @@ class Produk
     {
         return $this->price;
     }
-
-        public function __construct(ProdukId $id, $name, $description,$quantity,$price)
-        {
-            $this->id = $id;
-            $this->name = $name;
-            $this->description = $description;
-            $this->quantity = $quantity;
-            $this->price = $price;
-        }
-
-
-
-
-
-
 
 }
