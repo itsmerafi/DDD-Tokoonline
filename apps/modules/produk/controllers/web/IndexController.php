@@ -9,7 +9,7 @@ use Phalcon\Init\Produk\Domain\Model\Produk;
 use Phalcon\Init\Produk\Domain\Model\ProdukID;
 class IndexController extends Controller
 {
-
+    
     public function indexAction()
     {
 

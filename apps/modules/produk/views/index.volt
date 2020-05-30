@@ -52,11 +52,18 @@
                                 </div>
                           </div>
                          <div class = "row">
-                            <div class ="col-9"><h6>Stock : {{product['quantity']}} </h6></div>
+                             <form method="post" action="{{ url('/cart/index/add') }}">
+                                 <div class = "row">Id<input type="text" name="productId" value="{{ product['id']}}"></div>
 
+                                    <div class ="row"><h6>Stock : {{product['quantity']}} </h6></div>
 
-                             <a href="#" class="card-link" style=""><i class="fas fa-shopping-cart"></i>Buy</a>
+                                <div class ="row">
+                                <button type="submit" class="btn btn btn-success btn-block "><i class="fas fa-shopping-cart"></i>Buy</button>
+                                </div>
+                             </form>
+
                          </div>
+
 
 
 
