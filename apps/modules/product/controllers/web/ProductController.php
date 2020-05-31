@@ -8,6 +8,7 @@ use Phalcon\Init\Product\Application\CreateNewProduct\CreateNewProductRequest;
 use Phalcon\Init\Product\Application\CreateNewProduct\CreateNewProductService;
 use Phalcon\Init\Product\Application\EditProduct\EditProductRequest;
 use Phalcon\Init\Product\Application\EditProduct\EditProductService;
+use Phalcon\Init\Product\Application\DeleteProduct\DeleteProductRequest;
 use Phalcon\Init\Product\Application\DeleteProduct\DeleteProductService;
 use Phalcon\Mvc\Controller;
 

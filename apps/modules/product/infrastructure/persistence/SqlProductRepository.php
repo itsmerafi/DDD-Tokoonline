@@ -9,7 +9,7 @@ use Phalcon\Init\Product\Domain\Model\ProductId;
 use PDO;
 use Phalcon\Db\Adapter\Pdo\Mysql;
 
-class SqlProductRepository implements ProductRepository
+class SqlproductRepository implements productRepository
 {
     private $db;
 
@@ -20,41 +20,41 @@ class SqlProductRepository implements ProductRepository
 
     public function byId(ProductId $id)
     {
-        $statement = sprintf("SELECT * FROM Products WHERE Products.id = :Product_id");
-        $param = ['Product_id' => $id->id()];
+        $statement = sprintf("SELECT * FROM product WHERE product.id = :product_id");
+        $param = ['product_id' => $id->id()];
 
         return $this->db->query($statement, $param)
             ->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function save(Product $Product)
+    public function save(Product $product)
     {
-        $statement = sprintf("INSERT INTO Products(id, name, description, quantity, price) VALUES(:id, :name, :description, :quantity, :price)" );
-        $params = ['id' => $Product->id()->id() , 'name' => $Product->name(), 'description' => $Product->description(), 'quantity' => $Product->quantity(), 'price' => $Product->price()];
+        $statement = sprintf("INSERT INTO product(id, name, description, quantity, price) VALUES(:id, :name, :description, :quantity, :price)" );
+        $params = ['id' => $product->id()->id() , 'name' => $product->name(), 'description' => $product->description(), 'quantity' => $product->quantity(), 'price' => $product->price()];
 
         return $this->db->execute($statement, $params);
     }
 
     public function allProducts()
     {
-        $statement = sprintf("SELECT * FROM Products");
+        $statement = sprintf("SELECT * FROM product");
 
         return $this->db->query($statement)
             ->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function deleteProductById(ProductId $id)
+    public function deleteProductById(productId $id)
     {
-        $sql = "DELETE FROM Product WHERE id = :id";
+        $sql = "DELETE FROM product WHERE id = :id";
 
         $this->db->query($sql, [
             'id' => $id
         ]);
     }
 
-    public function update(ProductId $id, $name,$description,$quantity,$price)
+    public function update(productId $id, $name,$description,$quantity,$price)
     {
-        $sql = "UPDATE Product 
+        $sql = "UPDATE product 
                 SET name = :name, description = :description, quantity = :quantity, price = :price
                 WHERE id = :id";
 
