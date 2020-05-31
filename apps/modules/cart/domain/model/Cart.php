@@ -26,6 +26,7 @@ class Cart
 
     public function add(string $productId): void
     {
+        $item = $this->find($productId)
         $this->items->add(new Item($productId));
     }
 

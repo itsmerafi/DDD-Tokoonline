@@ -58,6 +58,7 @@ $di->setShared('sql_product_repository', function() use ($di) {
     return $repo;
 });
 
+
 $di->setShared('event_publisher', function() use ($di) {
     $instance = DomainEventPublisher::instance();
 

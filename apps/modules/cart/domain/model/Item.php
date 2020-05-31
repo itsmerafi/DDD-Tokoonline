@@ -15,20 +15,21 @@ class Item
     /**
      * @var int
      */
-    //private $amount;
+    private $amount;
 
     /**
      * @var Price
      */
-    //private $unitPrice;
+    private $unitPrice;
 
     /**
      * @throws AmountMustBePositiveException
      */
-    public function __construct(string $productId)
+    public function __construct(string $productId, Price $unitPrice, int $amount)
     {
         $this->productId = $productId;
-
+        $this->amount = $amount;
+        $this->unitPrice = $unitPrice;
     }
 
     public function toDetail(): ItemDetail

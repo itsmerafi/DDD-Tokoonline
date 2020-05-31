@@ -19,10 +19,10 @@ class CartDetail
      * @param ItemDetail[] $items
      * @param Price $totalPrice
      */
-    public function __construct(array $items )
+    public function __construct(array $items, Price $totalPrice )
     {
         $this->items = $items;
-        //$this->totalPrice = $totalPrice;
+        $this->totalPrice = $totalPrice;
     }
 
     /**
