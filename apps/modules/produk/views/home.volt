@@ -1,6 +1,6 @@
 {% extends 'layout.volt' %}
 
-{% block title %}List Product{% endblock %}
+{% block title %}Home{% endblock %}
 
 {% block styles %}{% endblock %}
 
@@ -12,8 +12,6 @@
     	<nav>
     	<ol class="breadcrumb text-white">
     	    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    	    <li class="breadcrumb-item"><a href="#">Best category</a></li>
-    	    <li class="breadcrumb-item active" aria-current="page">Great articles</li>
     	</ol>
     	</nav>
     </div> <!-- container //  -->
@@ -53,7 +51,6 @@
     				<li><a href="#">Clothes  </a></li>
     				<li><a href="#">Home items </a></li>
     				<li><a href="#">Animals</a></li>
-    				<li><a href="#">People </a></li>
     				</ul>
 
     			</div> <!-- card-body.// -->
@@ -206,6 +203,7 @@
     </header><!-- sect-heading -->
 
     <div class="row">
+    {% for product in products%}
     	<div class="col-md-4">
     		<figure class="card card-product-grid">
     			<div class="img-wrap">
@@ -215,17 +213,17 @@
     			</div> <!-- img-wrap.// -->
     			<figcaption class="info-wrap">
     				<div class="fix-height">
-    					<a href="#" class="title">Great item name goes here</a>
+    					<a href="#" class="title">{{ product['name']}}</a>
     					<div class="price-wrap mt-2">
-    						<span class="price">$1280</span>
-    						<del class="price-old">$1980</del>
+    						<span class="price">{{ product['price']}}</span>
+    						<!-- <del class="price-old">$1980</del> -->
     					</div> <!-- price-wrap.// -->
     				</div>
     				<a href="#" class="btn btn-block btn-primary">Add to cart </a>
     			</figcaption>
     		</figure>
     	</div> <!-- col.// -->
-
+    {% endfor%}
 
     </div> <!-- row end.// -->
 

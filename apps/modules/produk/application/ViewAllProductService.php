@@ -5,6 +5,7 @@ namespace Phalcon\Init\Produk\Application;
 
 
 use Phalcon\Init\Produk\Domain\Model\Product;
+use Phalcon\Init\Produk\Domain\Model\ProductId;
 use Phalcon\Init\Produk\Domain\Model\ProductRepository;
 
 class ViewAllProductService
@@ -24,19 +25,19 @@ class ViewAllProductService
     {
         $products = $this->productRepository->all();
         $response = new ViewAllProductResponse();
-//
-//        if($products)
-//            foreach ($products as $row){
-//                $response->addProductResponse(
-//                    $row->id(),
-//                    $row->name(),
-//                    $row->description(),
-//                    $row->quantity(),
-//                    $row->price()
-//                );
-//            }
 
-        //return $response;
-        return $products;
+        if($products)
+            foreach ($products as $row){
+                $response->addProductResponse(
+                    $row->id()->id(),
+                    $row->name(),
+                    $row->description(),
+                    $row->quantity(),
+                    $row->price()
+                );
+            }
+
+        return $response;
+        //return $products;
     }
 }

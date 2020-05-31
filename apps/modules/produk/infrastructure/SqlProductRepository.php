@@ -24,10 +24,21 @@ class SqlProductRepository implements ProductRepository
 
         $result = $db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC);
 
-        if($result)
-            return $result;
+        if($result) {
+            $resultArray = array();
+            foreach($result as $row) {
+                $product = new Produk(
+                    new ProdukId($row['id']),
+                    $row['name'],
+                    $row['description'],
+                    $row ['quantity'],
+                    $row['price']
 
-
+                );
+                array_push($resultArray, $product);
+            }
+            return $resultArray;
+        }
         return null;
     }
 }

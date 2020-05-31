@@ -31,7 +31,12 @@ class Produk
     private $price;
     
 
-    public function __construct(ProdukId $id, $name, $description,$quantity,$price)
+    public function __construct(
+        ProdukId $id,
+        string $name,
+        string $description,
+        int  $quantity,
+        int $price)
     {
         $this->id = $id;
         $this->name = $name;
@@ -43,7 +48,7 @@ class Produk
     /**
      * @return ProdukId
      */
-    public function id() : ProdukId
+    public function id()
     {
         return $this->id;
     }
@@ -51,7 +56,7 @@ class Produk
     /**
      * @return string
      */
-    public function name() : string
+    public function name()
     {
         return $this->name;
     }
@@ -59,7 +64,7 @@ class Produk
     /**
      * @return string
      */
-    public function description() : string
+    public function description()
     {
         return $this->description;
     }
@@ -67,7 +72,7 @@ class Produk
     /**
      * @return string
      */
-    public function quantity() : quantity
+    public function quantity()
     {
         return $this->quantity;
     }

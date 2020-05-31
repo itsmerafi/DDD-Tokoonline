@@ -6,7 +6,7 @@
 <meta http-equiv="cache-control" content="max-age=604800" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<title>List Product &bullet; Toko Online</title>
+<title>Home &bullet; Toko Online</title>
 
 <link href="<?= $this->url->get('/public/assets/images/favicon.ico') ?>" rel="shortcut icon" type="image/x-icon">
 
@@ -98,8 +98,6 @@ $(document).ready(function() {
     	<nav>
     	<ol class="breadcrumb text-white">
     	    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    	    <li class="breadcrumb-item"><a href="#">Best category</a></li>
-    	    <li class="breadcrumb-item active" aria-current="page">Great articles</li>
     	</ol>
     	</nav>
     </div> <!-- container //  -->
@@ -139,7 +137,6 @@ $(document).ready(function() {
     				<li><a href="#">Clothes  </a></li>
     				<li><a href="#">Home items </a></li>
     				<li><a href="#">Animals</a></li>
-    				<li><a href="#">People </a></li>
     				</ul>
 
     			</div> <!-- card-body.// -->
@@ -292,6 +289,7 @@ $(document).ready(function() {
     </header><!-- sect-heading -->
 
     <div class="row">
+    <?php foreach ($products as $product) { ?>
     	<div class="col-md-4">
     		<figure class="card card-product-grid">
     			<div class="img-wrap">
@@ -301,17 +299,17 @@ $(document).ready(function() {
     			</div> <!-- img-wrap.// -->
     			<figcaption class="info-wrap">
     				<div class="fix-height">
-    					<a href="#" class="title">Great item name goes here</a>
+    					<a href="#" class="title"><?= $product['name'] ?></a>
     					<div class="price-wrap mt-2">
-    						<span class="price">$1280</span>
-    						<del class="price-old">$1980</del>
+    						<span class="price"><?= $product['price'] ?></span>
+    						<!-- <del class="price-old">$1980</del> -->
     					</div> <!-- price-wrap.// -->
     				</div>
     				<a href="#" class="btn btn-block btn-primary">Add to cart </a>
     			</figcaption>
     		</figure>
     	</div> <!-- col.// -->
-
+    <?php } ?>
 
     </div> <!-- row end.// -->
 
