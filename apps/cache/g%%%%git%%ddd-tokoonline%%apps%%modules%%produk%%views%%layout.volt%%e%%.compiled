@@ -1,47 +1,118 @@
-a:9:{i:0;s:291:"<!doctype html>
+a:9:{i:0;s:275:"<!DOCTYPE HTML>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="utf-8">
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="cache-control" content="max-age=604800" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <meta name="description" content="Idea Brainstorming">
-    <meta name="author" content="Rizky Januar Akbar">
-    <title>";s:5:"title";N;i:1;s:280:" &bullet; Idy</title>
+<title>";s:5:"title";N;i:1;s:1236:" &bullet; Toko Online</title>
 
-    <!-- Bootstrap core CSS -->
+<link href="<?= $this->url->get('/public/assets/images/favicon.ico') ?>" rel="shortcut icon" type="image/x-icon">
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- jQuery -->
+<script src="<?= $this->url->get('/public/assets/js/jquery-2.0.0.min.js') ?>" type="text/javascript"></script>
 
-    ";s:6:"styles";N;i:2;s:801:"
+<!-- Bootstrap4 files-->
+<script src="<?= $this->url->get('/public/assets/js/bootstrap.bundle.min.js') ?>" type="text/javascript"></script>
+<link href="<?= $this->url->get('/public/assets/css/bootstrap.css') ?>" rel="stylesheet" type="text/css"/>
 
+<!-- Font awesome 5 -->
+<link href="<?= $this->url->get('/public/assets/fonts/fontawesome/css/all.min.css') ?>" type="text/css" rel="stylesheet">
+
+<!-- custom style -->
+<link href="<?= $this->url->get('/public/assets/css/ui.css') ?>" rel="stylesheet" type="text/css"/>
+<link href="<?= $this->url->get('/public/assets/css/responsive.css') ?>" rel="stylesheet" media="only screen and (max-width: 1200px)" />
+
+<!-- custom javascript -->
+<script src="<?= $this->url->get('/public/assets/js/script.js') ?>" type="text/javascript"></script>
+
+<script type="text/javascript">
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+});
+// jquery end
+</script>
+";s:6:"styles";N;i:2;s:1815:"
 </head>
 <body>
-    
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a class="navbar-brand" href="#">Idy</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-            <div class="form-inline ml-auto my-2 my-lg-0">
-                <a href="<?= $this->url->get('idea/add') ?>" class="btn btn-secondary my-2 my-sm-0">Add new</a>
-            </div>
+   <header class="section-header">
+
+   <section class="header-main border-bottom">
+   	<div class="container">
+   <div class="row align-items-center">
+   	<div class="col-lg-2 col-4">
+   		<a href="#" class="brand-wrap">
+   			<img class="logo" src="<?= $this->url->get('/public/assets/images/logo.png') ?>">
+   		</a> <!-- brand-wrap.// -->
+   	</div>
+   	<div class="col-lg-6 col-sm-12">
+   		<form action="#" class="search">
+   			<div class="input-group w-100">
+   			    <input type="text" class="form-control" placeholder="Search">
+   			    <div class="input-group-append">
+   			      <button class="btn btn-primary" type="submit">
+   			        <i class="fa fa-search"></i>
+   			      </button>
+   			    </div>
+   		    </div>
+   		</form> <!-- search-wrap .end// -->
+   	</div> <!-- col.// -->
+   	<div class="col-lg-4 col-sm-6 col-12">
+   		<div class="widgets-wrap float-md-right">
+   			<div class="widget-header  mr-3">
+   				<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
+   				<span class="badge badge-pill badge-danger notify">0</span>
+   			</div>
+   			<div class="widget-header icontext">
+   				<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+   				<div class="text">
+   					<span class="text-muted">Welcome!</span>
+   					<div>
+   						<a href="#">Sign in</a> |
+   						<a href="#  "> Register</a>
+   					</div>
+   				</div>
+   			</div>
+
+   		</div> <!-- widgets-wrap.// -->
+   	</div> <!-- col.// -->
+   </div> <!-- row.// -->
+   	</div> <!-- container.// -->
+   </section> <!-- header-main .// -->
+   </header> <!-- section-header.// -->
+
+
+    <main role="main" class="container">
+        <div class="content">
+            ";s:7:"content";N;i:3;s:43:"
+
         </div>
-    </nav>
-
-    <main role="main" class="container" style="margin-top: 100px;">
-
-    ";s:7:"content";N;i:3;s:624:"
-
     </main>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    ";s:7:"scripts";N;i:4;s:24:"
+
+    ";s:7:"scripts";N;i:4;s:432:"
 </body>
+<!-- ========================= FOOTER ========================= -->
+
+<footer class="section-footer border-top padding-y">
+	<div class="container">
+		<p class="float-md-right">
+			&copy Copyright 2019 All rights reserved
+		</p>
+		<p>
+			<a href="#">Terms and conditions</a>
+		</p>
+	</div><!-- //container -->
+</footer>
+<!-- ========================= FOOTER END // ========================= -->
+
 </html>
 
 
