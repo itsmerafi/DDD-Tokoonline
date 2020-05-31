@@ -4,11 +4,16 @@ namespace Phalcon\Init\Cart\Controllers\Web;
 use Phalcon\Http\Request;
 use Phalcon\Mvc\Controller;
 
-class IndexController extends Controller
+class CartController extends Controller
 {
     public function indexAction()
     {
-        $this->view->pick('index');
+        $this->view->pick('cart');
+    }
+
+    public function layoutAction()
+    {
+        $this->view->pick('layout');
     }
 
     public function  addAction()
@@ -21,7 +26,7 @@ class IndexController extends Controller
         else {
             $this->view->setVar('work', 'no');
         }
-        $this->view->pick('index');
+        $this->view->pick('layout');
 
     }
 }

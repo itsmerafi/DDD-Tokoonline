@@ -18,7 +18,7 @@ class IndexController extends Controller
 
         $response = $service->execute();
         $this->view->setVar('products', $response);
-           return $this->view->pick('index');
+           return $this->view->pick('home');
 //
 
     }
