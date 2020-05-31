@@ -87,5 +87,12 @@ class Product
     }
 
     
+    public function substractStock($value){
+
+        if($this->quantity>$value){
+            $this->quantity=$this->quantity-$value;
+        }
+
+    }
 
 }

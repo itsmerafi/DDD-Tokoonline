@@ -11,5 +11,5 @@ interface ProductRepository
     public function save(Product $Product);
     public function allProducts();
     public function deleteProductById(ProductId $id);
-    public function update(Product $id, $name,$description,$quantity,$price);
+    public function update(ProductId $id, $name,$description,$quantity,$price);
 }

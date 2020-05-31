@@ -13,6 +13,7 @@ class Module implements ModuleDefinitionInterface
         $loader = new Loader();
 
         $loader->registerNamespaces([
+            'Phalcon\Init\Product\Domain\Repository' => __DIR__ . '/domain/repository',
             'Phalcon\Init\Product\Domain\Model' => __DIR__ . '/domain/model',
             'Phalcon\Init\Product\Infrastructure' => __DIR__ . '/infrastructure',
             'Phalcon\Init\Product\Application' => __DIR__ . '/application',
