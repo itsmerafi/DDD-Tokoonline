@@ -1,14 +1,14 @@
 <?php
 
 return array(
-    'produk' => [
-        'namespace' => 'Phalcon\Init\Produk',
-        'webControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Web',
-        'apiControllerNamespace' => 'Phalcon\Init\Produk\Controllers\Api',
-        'className' => 'Phalcon\Init\Produk\Module',
-        'path' => APP_PATH . '/modules/produk/Module.php',
+    'product' => [
+        'namespace' => 'Phalcon\Init\Product',
+        'webControllerNamespace' => 'Phalcon\Init\Product\Controllers\Web',
+        'apiControllerNamespace' => 'Phalcon\Init\Product\Controllers\Api',
+        'className' => 'Phalcon\Init\Product\Module',
+        'path' => APP_PATH . '/modules/Product/Module.php',
         'defaultRouting' => true,
-        'defaultController' => 'index',
+        'defaultController' => 'product',
         'defaultAction' => 'index'
     ],
 
