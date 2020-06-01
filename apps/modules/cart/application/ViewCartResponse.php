@@ -4,14 +4,19 @@ namespace Phalcon\Init\Cart\Application;
 
 class ViewCartResponse
 {
-//    private $cartId;
-//    private $productId;
-//    private $unitPrice;
-//    private $amount;
-    public $item;
+    public $cartId;
+    public $totalPrice;
+    public $items;
 
     public function __construct()
     {
+        $this->items = array();
+    }
 
+    public function addItemResponse($productId, $unitPrice, $amount)
+    {
+
+
+        //array_push($this->items, $item);
     }
 }

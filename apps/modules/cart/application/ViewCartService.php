@@ -21,7 +21,20 @@ class ViewCartService
         $cart = $this->cartRepository->getById($Id);
         $response = new ViewCartResponse();
 
-        return 'bambang';
+        $response->cartId = $cart->getId();
+        $response->totalPrice = $cart->calculate()->getTotalPrice();
+
+        foreach ($cart->calculate()->getItems() as $item){
+            $items = array(
+                'productId' =>$item->getProductId(),
+                'price' => $item->getPrice()->getWithVat(),
+                'amount' => $item->getAmount()
+
+            );
+            array_push($response->items, $items);
+        }
+
+        return $response;
 
 
 

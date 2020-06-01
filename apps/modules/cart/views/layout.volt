@@ -89,7 +89,7 @@ $(document).ready(function() {
     <main role="main" class="container">
         <div class="content">
             {% block content %}{% endblock %}
-
+            {{dump(cart)}}
         </div>
     </main>
 

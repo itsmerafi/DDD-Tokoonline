@@ -2,7 +2,11 @@
 
 namespace Phalcon\Init\Cart\Domain\model;
 use Phalcon\Init\Cart\Domain\Model\Item;
-
+use Phalcon\Init\Cart\Domain\Model\CartDetail;
+use Phalcon\Init\Cart\Domain\Model\ItemDetail;
+use Phalcon\Init\Cart\Domain\Model\ProductNotInCartException;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 class Cart
 {
 
@@ -12,21 +16,23 @@ class Cart
     private $id;
 
     /**
-     * @var Item[]
+     * @var Collection|Item[]
      */
     private $items;
 
     public function __construct(string $id)
     {
         $this->id = $id;
-        $this->items =  array();
+        $this->items =  new ArrayCollection();
     }
 
 
 
-    public function addItem(string $productId, Price $unitPrice, int $amount = 1): void
+    public function addItem(string $productId, Price $unitPrice, int $amount): void
     {
-        $this->items = new Item($productId, $unitPrice, $amount);
+
+        $this->items->add(new Item($productId, $unitPrice, $amount));
+
     }
 
     /**

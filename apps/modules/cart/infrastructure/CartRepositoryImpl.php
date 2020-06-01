@@ -48,13 +48,14 @@ class CartRepositoryImpl implements CartRepository
         $result = $db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC,['id' => $id]);
 
         if($result) {
-            $cart = new Cart((string)$row['cart_id']);
-            foreach($result as $row) {
-                $cart->addItem((string) $row['product'], new Price($row['unit_price']), $row['amount']);
+            $cart = new Cart($result[0]['cart_id']);
+            foreach ($result as $row) {
+                $cart->addItem((string)$row['product_id'], new Price($row['unit_price']), $row['amount']);
             }
             return $cart;
         }
-        return null;
+
+        return $result;
 
     }
 }

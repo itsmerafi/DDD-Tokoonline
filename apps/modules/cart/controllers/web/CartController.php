@@ -17,8 +17,8 @@ class CartController extends Controller
         $service = new ViewCartService($cartRepository);
         $response = $service->execute('user_id');
 
-            $this->view->setVar('cart', $response->cart);
-        $this->view->pick('cart');
+        $this->view->setVar('cart', $response);
+        $this->view->pick('layout');
     }
 
     public function  addAction()
