@@ -22,13 +22,14 @@ class ViewCartService
         $response = new ViewCartResponse();
 
         $response->cartId = $cart->getId();
-        $response->totalPrice = $cart->calculate()->getTotalPrice();
+        $response->totalPrice = $cart->calculate()->getTotalPrice()->getWithVat();
 
         foreach ($cart->calculate()->getItems() as $item){
             $items = array(
                 'productId' =>$item->getProductId(),
-                'price' => $item->getPrice()->getWithVat(),
-                'amount' => $item->getAmount()
+                'unit_price' => $item->getPrice()->getWithVat(),
+                'amount' => $item->getAmount(),
+                'price' => $item->getPrice()->multiply($item->getAmount())->getWithVat()
 
             );
             array_push($response->items, $items);

@@ -37,7 +37,7 @@ $(document).ready(function() {
 });
 // jquery end
 </script>
-";s:6:"styles";N;i:2;s:1815:"
+";s:6:"styles";N;i:2;s:1871:"
 </head>
 <body>
 
@@ -47,7 +47,7 @@ $(document).ready(function() {
    	<div class="container">
    <div class="row align-items-center">
    	<div class="col-lg-2 col-4">
-   		<a href="#" class="brand-wrap">
+   		<a href="<?= $this->url->get('/') ?>" class="brand-wrap">
    			<img class="logo" src="<?= $this->url->get('/public/assets/images/logo.png') ?>">
    		</a> <!-- brand-wrap.// -->
    	</div>
@@ -66,7 +66,7 @@ $(document).ready(function() {
    	<div class="col-lg-4 col-sm-6 col-12">
    		<div class="widgets-wrap float-md-right">
    			<div class="widget-header  mr-3">
-   				<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
+   				<a href="<?= $this->url->get('/cart') ?>" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
    				<span class="badge badge-pill badge-danger notify">0</span>
    			</div>
    			<div class="widget-header icontext">
