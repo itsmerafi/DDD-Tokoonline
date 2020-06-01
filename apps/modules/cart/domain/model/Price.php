@@ -7,7 +7,7 @@ namespace Phalcon\Init\Cart\Domain\Model;
 use Litipk\BigNumbers\Decimal;
 class Price
 {
-    private const DECIMALS = 2;
+    private const DECIMALS = 0;
 
     /**
      * @var Decimal

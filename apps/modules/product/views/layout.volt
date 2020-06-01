@@ -47,7 +47,7 @@ $(document).ready(function() {
    	<div class="container">
    <div class="row align-items-center">
    	<div class="col-lg-2 col-4">
-   		<a href="#" class="brand-wrap">
+   		<a href="{{ url('/')}}" class="brand-wrap">
    			<img class="logo" src="{{ url('/public/assets/images/logo.png') }}">
    		</a> <!-- brand-wrap.// -->
    	</div>
@@ -66,7 +66,7 @@ $(document).ready(function() {
    	<div class="col-lg-4 col-sm-6 col-12">
    		<div class="widgets-wrap float-md-right">
    			<div class="widget-header  mr-3">
-   				<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
+   				<a href="{{ url('/cart')}}" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
    				<span class="badge badge-pill badge-danger notify">0</span>
    			</div>
    			<div class="widget-header icontext">
