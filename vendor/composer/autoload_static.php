@@ -24,6 +24,10 @@ class ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f
         array (
             'PhpOption\\' => 10,
         ),
+        'L' => 
+        array (
+            'Litipk\\BigNumbers\\' => 18,
+        ),
         'D' => 
         array (
             'Dotenv\\' => 7,
@@ -42,6 +46,10 @@ class ComposerStaticInitea81e84ec063c6af92c708a09b5ccc0f
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'Litipk\\BigNumbers\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/litipk/php-bignumbers/src',
         ),
         'Dotenv\\' => 
         array (

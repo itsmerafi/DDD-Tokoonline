@@ -1,7 +1,7 @@
 <?php
 
-namespace Phalcon\Init\Cart\Domain;
-
+namespace Phalcon\Init\Cart\Domain\model;
+use Phalcon\Init\Cart\Domain\Model\Item;
 
 class Cart
 {
@@ -19,14 +19,14 @@ class Cart
     public function __construct(string $id)
     {
         $this->id = $id;
-        $this->items =  new ArrayCollection();
+        $this->items =  array();
     }
 
 
 
     public function addItem(string $productId, Price $unitPrice, int $amount = 1): void
     {
-        $this->items = new Item($productId, $unitPrice, $amount));
+        $this->items = new Item($productId, $unitPrice, $amount);
     }
 
     /**

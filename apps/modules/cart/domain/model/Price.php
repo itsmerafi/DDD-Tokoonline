@@ -1,9 +1,10 @@
 <?php
 
 
-namespace Phalcon\Init\Cart\Domain;
+namespace Phalcon\Init\Cart\Domain\Model;
 
 
+use Litipk\BigNumbers\Decimal;
 class Price
 {
     private const DECIMALS = 2;

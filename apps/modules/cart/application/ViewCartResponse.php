@@ -1,14 +1,17 @@
 <?php
+namespace Phalcon\Init\Cart\Application;
 
 
 class ViewCartResponse
 {
-    private $cart_id;
-    private $item;
+//    private $cartId;
+//    private $productId;
+//    private $unitPrice;
+//    private $amount;
+    public $item;
 
-    public function __construct($cart_id, $item)
+    public function __construct()
     {
-        $this->cart_id = $cart_id;
-        $this->item = $item;
+
     }
 }

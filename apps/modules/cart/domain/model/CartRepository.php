@@ -1,13 +1,10 @@
 <?php
 
-namespace Phalcon\Init\Cart\Domain;
+namespace Phalcon\Init\Cart\Domain\Model;
 
 interface CartRepository
 {
-
     public function addItem(Cart $cart);
-
-    public function createCart(string cart_id) : Cart;
 
     public function getById(string $id): Cart;
 

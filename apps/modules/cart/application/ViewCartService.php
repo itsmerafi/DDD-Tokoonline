@@ -1,13 +1,16 @@
 <?php
+namespace Phalcon\Init\Cart\Application;
 
-use Phalcon\Init\Cart\Domain\CartRepositoryImpl
+use Phalcon\Init\Cart\Domain\Model\CartRepository;
+use Phalcon\Init\Cart\Application\ViewCartResponse;
+
 
 class ViewCartService
 {
     private $cartRepository;
 
     public function __construct(
-        CartRepositoryImpl  $cartRepositoryImpl
+        CartRepository  $cartRepositoryImpl
     )
     {
         $this->cartRepository = $cartRepositoryImpl;
@@ -16,14 +19,9 @@ class ViewCartService
     public function execute($Id)
     {
         $cart = $this->cartRepository->getById($Id);
+        $response = new ViewCartResponse();
 
-        if($cart){
-            return new ViewCartResponse(
-                $cart->getId(),
-                $cart->getItem()
-            );
-        }
-        return null;
+        return 'bambang';
 
 
 

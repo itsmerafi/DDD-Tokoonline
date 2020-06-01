@@ -1,7 +1,11 @@
 <?php
 
+namespace Phalcon\Init\Cart\Infrastructure;
 
-namespace Phalcon\Init\Cart\Domain;
+use Phalcon\Init\Cart\Domain\Model\CartRepository;
+use Phalcon\DiInterface;
+use Phalcon\Init\Cart\Domain\Model\Cart;
+use Phalcon\Init\Cart\Domain\Model\Price;
 
 
 class CartRepositoryImpl implements CartRepository
@@ -35,12 +39,22 @@ class CartRepositoryImpl implements CartRepository
 
     }
 
-    public function createCart(string $) : Cart{
-        // TODO: Implement createCart() method.
-    }
 
     public function getById(string $id): Cart
     {
         // TODO: Implement getById() method.
+        $db = $this->di->getShared('db');
+        $sql = "SELECT * From cart where cart_id = :id ";
+        $result = $db->fetchAll($sql, \Phalcon\Db::FETCH_ASSOC,['id' => $id]);
+
+        if($result) {
+            $cart = new Cart((string)$row['cart_id']);
+            foreach($result as $row) {
+                $cart->addItem((string) $row['product'], new Price($row['unit_price']), $row['amount']);
+            }
+            return $cart;
+        }
+        return null;
+
     }
 }

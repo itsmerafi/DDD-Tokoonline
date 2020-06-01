@@ -2,15 +2,22 @@
 
 namespace Phalcon\Init\Cart\Controllers\Web;
 use Phalcon\Http\Request;
-use Phalcon\Init\Cart\Application\AddItemService;
 use Phalcon\Mvc\Controller;
+use Phalcon\Init\Cart\Application\AddItemService;
+use Phalcon\Init\Cart\Application\ViewCartService;
+
+
 
 class CartController extends Controller
 {
 
     public function showCartAction()
     {
+        $cartRepository = $this->di->getShared('sql_cart_repository');
+        $service = new ViewCartService($cartRepository);
+        $response = $service->execute('user_id');
 
+            $this->view->setVar('cart', $response->cart);
         $this->view->pick('cart');
     }
 
