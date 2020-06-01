@@ -10,6 +10,7 @@ class CartController extends Controller
 
     public function showCartAction()
     {
+
         $this->view->pick('cart');
     }
 
@@ -22,7 +23,7 @@ class CartController extends Controller
         $cartRepository = $this->di->getShared('sql_cart_repository');
 
 
-//        $service = new GetCartService($CartRepository);
+//        $service = new ViewCartService($CartRepository);
 //        $response = $service->execute($cartId);
 
         $request = new AddItemRequest(

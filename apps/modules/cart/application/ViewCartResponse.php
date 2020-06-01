@@ -1,7 +1,7 @@
 <?php
 
 
-class GetCartResponse
+class ViewCartResponse
 {
     private $cart_id;
     private $item;

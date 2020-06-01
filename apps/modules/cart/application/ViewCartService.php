@@ -2,7 +2,7 @@
 
 use Phalcon\Init\Cart\Domain\CartRepositoryImpl
 
-class GetCartService
+class ViewCartService
 {
     private $cartRepository;
 
@@ -18,7 +18,7 @@ class GetCartService
         $cart = $this->cartRepository->getById($Id);
 
         if($cart){
-            return new GetCartResponse(
+            return new ViewCartResponse(
                 $cart->getId(),
                 $cart->getItem()
             );
