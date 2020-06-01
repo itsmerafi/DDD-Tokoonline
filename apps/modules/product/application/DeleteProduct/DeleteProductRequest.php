@@ -4,11 +4,11 @@ namespace Phalcon\Init\Product\Application\DeleteProduct;
 
 class DeleteProductRequest
 {
-    public $ProductId;
+    public $productId;
     
-    public function __construct($ProductId)
+    public function __construct($productId)
     {
-        $this->ProductId = $ProductId;
+        $this->productId = $productId;
     }
 
     /**
@@ -16,15 +16,15 @@ class DeleteProductRequest
      */
     public function getProductId()
     {
-        return $this->ProductId;
+        return $this->productId;
     }
 
     /**
      * @param mixed $ProductId
      */
-    public function setProductId($ProductId)
+    public function setProductId($productId):void
     {
-        $this->ProductId = $ProductId;
+        $this->productId = $productId;
     }
 
 }

@@ -9,7 +9,7 @@ use Phalcon\Init\Product\Domain\Model\ProductId;
 use PDO;
 use Phalcon\Db\Adapter\Pdo\Mysql;
 
-class SqlproductRepository implements productRepository
+class SqlProductRepository implements ProductRepository
 {
     private $db;
 
@@ -60,23 +60,21 @@ class SqlproductRepository implements productRepository
         return null;
     }
 
-    public function deleteProductById(productId $id)
+    public function deleteProductById(ProductId $id)
     {
-        $sql = "DELETE FROM product WHERE id = :id";
-
-        $this->db->query($sql, [
-            'id' => $id
-        ]);
+        $sql = "DELETE FROM product WHERE product.id =  :id  ";
+        $params = ['id'=> $id->id()];
+        $this->db->query($sql, $params);
     }
 
-    public function update(productId $id, $name,$description,$quantity,$price)
+    public function update(ProductId $id, $name,$description,$quantity,$price)
     {
         $sql = "UPDATE product 
                 SET name = :name, description = :description, quantity = :quantity, price = :price
                 WHERE id = :id";
 
         $this->db->query($sql, [
-            'id' => $id,
+            'id' => $id->id(),
             'name' => $name,
             'description' => $description,
             'quantity' => $quantity,

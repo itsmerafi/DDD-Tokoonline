@@ -3,21 +3,27 @@
 namespace Phalcon\Init\Product\Application\DeleteProduct;
 
 use Phalcon\Init\Product\Domain\Repository\ProductRepository;
+use Phalcon\Init\Product\Domain\Model\Product;
+use Phalcon\Init\Product\Domain\Model\ProductId;
+use Phalcon\Init\Product\Application\DeleteProduct\DeleteProductRequest;
+use Phalcon\Init\Product\Application\DeleteProduct\DeleteProductResponse;
 
 class DeleteProductService
 {
-    protected $ProductRepository;
+    protected $productRepository;
 
-    public function __construct(ProductRepository $ProductRepository)
+    public function __construct(ProductRepository $productRepository)
     {
-        $this->ProductRepository = $ProductRepository;
+        $this->productRepository = $productRepository;
     }
 
     public function execute(DeleteProductRequest $request)
     {
+        $productId = new ProductId($request->getProductId());
+        //$productfromdb= $this->ProductRepository->byId($productId);
         try {
-            $this->ProductRepository->deleteByID($request->getProductId());
-            return new DeleteProductResponse('Hapus Product berhasil.');
+            $response=$this->productRepository->deleteProductById($productId);
+            return new DeleteProductResponse($response,$productId->id());
         }
         catch(\Exception $e) {
             return new DeleteProductResponse($e->getMessage(), TRUE);

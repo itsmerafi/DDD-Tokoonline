@@ -201,7 +201,9 @@
     			</div>
     		</div>
     </header><!-- sect-heading -->
-
+<div class="sessionMessage">
+        <p><?php $this->flashSession->output() ?></p>
+    </div>
     <div class="row">
     {% for product in products%}
     	<div class="col-md-4">
@@ -220,6 +222,10 @@
     					</div> <!-- price-wrap.// -->
     				</div>
     				<a href="#" class="btn btn-block btn-primary">Add to cart </a>
+                    <form action="{{url('/product/product/delete')}}" method="POST">
+                    <input type="hidden" name="productId" value="{{product['id']}}">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
     			</figcaption>
     		</figure>
     	</div> <!-- col.// -->

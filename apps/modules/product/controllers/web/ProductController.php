@@ -11,6 +11,7 @@ use Phalcon\Init\Product\Application\EditProduct\EditProductRequest;
 use Phalcon\Init\Product\Application\EditProduct\EditProductService;
 use Phalcon\Init\Product\Application\DeleteProduct\DeleteProductRequest;
 use Phalcon\Init\Product\Application\DeleteProduct\DeleteProductService;
+use Phalcon\Init\Product\Application\DeleteProduct\DeleteProductResponse;
 use Phalcon\Mvc\Controller;
 
 class ProductController extends Controller
@@ -65,13 +66,17 @@ class ProductController extends Controller
 
     public function addAction()
     {
-        $ProductName = $this->request->getPost('ProductName');
-        $ProductDescription = $this->request->getPost('ProductDescription');
-        $ProductQuantity = $this->request->getPost('ProductQuantity');
-        $ProductPrice = $this->request->getPost('ProductPrice');
+        $ProductName = $this->request->getPost('productName');
+        $ProductDescription = $this->request->getPost('productDescription');
+        $ProductQuantity = $this->request->getPost('productQuantity');
+        $ProductPrice = $this->request->getPost('productPrice');
+
+        $productRepository = $this->di->getShared('product_repository');
 
         $request = new CreateNewProductRequest($ProductName, $ProductDescription, $ProductQuantity, $ProductPrice);
-        $response = $this->createNewProductService->handle($request);
+        $service = new CreateNewProductService($productRepository);
+
+        $response=$service->handle($request);
 
         $response->getError()
             ? $this->flashSession->error($response->getMessage())
@@ -81,11 +86,14 @@ class ProductController extends Controller
 
     }
 
-    public function DeleteAction()
+    public function deleteAction()
     {
-        $request = new DeleteProductRequest($this->request->getPost('ProductId'));
-        $response = $this->DeleteProductService->handle($request);
-
+        $productRepository = $this->di->getShared('product_repository');
+        $reqId=$this->request->getPost('productId');
+        $request = new DeleteProductRequest($reqId);
+        $service = new DeleteProductService($productRepository);
+        $response = $service->execute($request);
+        //echo $response->getMessage();
         $response->getError()
             ? $this->flashSession->error($response->getMessage())
             : $this->flashSession->success($response->getMessage());
@@ -93,7 +101,7 @@ class ProductController extends Controller
         return $this->response->redirect('');
     }
 
-    public function UpdateAction(){
+    public function updateAction(){
         $prodId = $this->request->getPost('ProductId');
         $ProductName = $this->request->getPost('ProductName');
         $ProductDescription = $this->request->getPost('ProductDescription');

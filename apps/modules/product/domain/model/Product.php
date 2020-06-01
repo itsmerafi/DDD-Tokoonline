@@ -87,7 +87,10 @@ class Product
         return $this->price;
     }
 
-    
+    public function makeProduct($name,$description,$quantity,$price):Product{
+        return new Product(new ProductId(),$name,$description,$quantity,$price);
+    }
+
     public function substractStock($value){
 
         if($this->quantity>$value){

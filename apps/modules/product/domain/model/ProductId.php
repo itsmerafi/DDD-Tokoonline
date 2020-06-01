@@ -2,15 +2,13 @@
 
 namespace Phalcon\Init\Product\Domain\Model;
 
-
-
 use Ramsey\Uuid\Uuid;
 
 class ProductId
 {
     private $id;
 
-    public function __construct($id = null)
+    public function __construct($id=null)
     {
         $this->id = $id ? : Uuid::uuid4()->toString();
     }
@@ -23,6 +21,11 @@ class ProductId
     public function equals(ProdukId $produkId)
     {
         return $this->id === $produkId->id;
+    }
+
+
+    public function setId($id){
+        $this->id=$id;
     }
 
 }

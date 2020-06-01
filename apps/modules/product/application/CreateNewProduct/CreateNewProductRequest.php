@@ -52,7 +52,7 @@ class CreateNewProductRequest
     /**
      * @return mixed
      */
-    public function getquantity()
+    public function getProductQuantity()
     {
         return $this->quantity;
     }
@@ -60,7 +60,7 @@ class CreateNewProductRequest
     /**
      * @param mixed $quantity
      */
-    public function setquantity($quantity)
+    public function setProductQuantity($quantity)
     {
         $this->quantity = $quantity;
     }
@@ -68,7 +68,7 @@ class CreateNewProductRequest
     /**
      * @return mixed
      */
-    public function getprice()
+    public function getProductPrice()
     {
         return $this->price;
     }
@@ -76,7 +76,7 @@ class CreateNewProductRequest
     /**
      * @param mixed $price
      */
-    public function setprice($price)
+    public function setProductPrice($price)
     {
         $this->price = $price;
     }
