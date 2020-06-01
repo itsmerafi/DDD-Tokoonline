@@ -39,8 +39,25 @@ class SqlproductRepository implements productRepository
     {
         $statement = sprintf("SELECT * FROM product");
 
-        return $this->db->query($statement)
+        $result =  $this->db->query($statement)
             ->fetchAll(PDO::FETCH_ASSOC);
+
+        if($result) {
+            $resultArray = array();
+            foreach($result as $row) {
+                $product = new Product(
+                    new ProductId($row['id']),
+                    $row['name'],
+                    $row['description'],
+                    $row ['quantity'],
+                    $row['price']
+
+                );
+                array_push($resultArray, $product);
+            }
+            return $resultArray;
+        }
+        return null;
     }
 
     public function deleteProductById(productId $id)

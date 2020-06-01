@@ -3,6 +3,7 @@
 namespace Phalcon\Init\Product\Application\ViewAllProduct;
 
 use Phalcon\Init\Product\Domain\Repository\ProductRepository;
+use Phalcon\Init\Product\Application\ViewAllProduct\ViewAllProductResponse;
 
 class ViewAllProductService
 {
@@ -15,8 +16,20 @@ class ViewAllProductService
 
     public function handle()
     {
-        $Products = $this->repository->allProducts();
+        $products = $this->repository->allProducts();
+        $response = new ViewAllProductResponse();
 
-        return $Products;
+        if($products)
+            foreach ($products as $row){
+                $response->addProductResponse(
+                    $row->id()->id(),
+                    $row->name(),
+                    $row->description(),
+                    $row->quantity(),
+                    $row->price()
+                );
+            }
+
+        return $response;
     }
 }

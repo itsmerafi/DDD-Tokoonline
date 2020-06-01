@@ -75,22 +75,22 @@ $di['db'] = function () use ($di) {
 //     return $instance;
 // });
 
-$di->set('product_repository', function() use ($di) {
+$di->setShared('product_repository', function() use ($di) {
      return new SqlProductRepository($di->get('db'));
  });
 
-$di->set('viewAllProductService', function () use ($di) {
-   return new ViewAllProductService($di->get('product_repository'));
-});
+// $di->set('viewAllProductService', function () use ($di) {
+//    return new ViewAllProductService($di->get('product_repository'));
+// });
 
-$di->set('createNewProductService', function () use ($di) {
-   return new CreateNewProductService($di->get('product_repository'));
-});
+// $di->set('createNewProductService', function () use ($di) {
+//    return new CreateNewProductService($di->get('product_repository'));
+// });
 
-$di->set('editProductService', function () use ($di) {
-   return new EditProductService($di->get('product_repository'));
-});
+// $di->set('editProductService', function () use ($di) {
+//    return new EditProductService($di->get('product_repository'));
+// });
 
-$di->set('deleteProductService', function () use ($di) {
-   return new DeleteProductService($di->get('product_repository'));
-});
+// $di->set('deleteProductService', function () use ($di) {
+//    return new DeleteProductService($di->get('product_repository'));
+// });

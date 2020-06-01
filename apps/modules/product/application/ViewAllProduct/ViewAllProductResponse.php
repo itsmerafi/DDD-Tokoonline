@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Phalcon\Init\Produk\Application\ViewAllProduct;
+namespace Phalcon\Init\Product\Application\ViewAllProduct;
 
 
 class ViewAllProductResponse

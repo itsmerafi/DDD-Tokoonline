@@ -5,12 +5,13 @@ namespace Phalcon\Init\Product\Domain\Model;
 use Exception;
 use http\Client\Curl\User;
 use Phalcon\Init\Common\Events\DomainEventPublisher;
-use Phalcon\Init\Produk\Domain\Exception\InvalidRatingException;
+use Phalcon\Init\Product\Domain\Exception\InvalidRatingException;
+use Phalcon\Init\Product\Domain\Model\ProductId;
 
 class Product
 {
     /**
-     * @var ProdukId
+     * @var ProductId
      */
     private $id;
     /**
@@ -32,7 +33,7 @@ class Product
     
 
     public function __construct(
-        ProdukId $id,
+        ProductId $id,
         string $name,
         string $description,
         int  $quantity,
@@ -46,7 +47,7 @@ class Product
     }
 
     /**
-     * @return ProdukId
+     * @return ProductId
      */
     public function id()
     {

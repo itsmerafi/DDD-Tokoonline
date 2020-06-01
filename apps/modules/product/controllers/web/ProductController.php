@@ -4,6 +4,7 @@ namespace Phalcon\Init\Product\Controllers\Web;
 
 
 use Phalcon\Init\Product\Application\ViewAllProduct\ViewAllProductService;
+use Phalcon\Init\Product\Application\ViewAllProduct\ViewAllProductResponse;
 use Phalcon\Init\Product\Application\CreateNewProduct\CreateNewProductRequest;
 use Phalcon\Init\Product\Application\CreateNewProduct\CreateNewProductService;
 use Phalcon\Init\Product\Application\EditProduct\EditProductRequest;
@@ -31,13 +32,6 @@ class ProductController extends Controller
      */
     protected $deleteProductService;
 
-    public function initialize()
-    {
-        $this->viewAllProductService = $this->di->get('viewAllProductService');
-        $this->createNewProductService = $this->di->get('createNewProductService');
-        $this->editProductService = $this->di->get('editProductService');
-        $this->deleteProductService = $this->di->get('deleteProductService');
-    }
 
     protected function send($data, $code = 200, $message = 'OK')
     {
@@ -56,10 +50,12 @@ class ProductController extends Controller
 
     public function indexAction()
     {
-        $response = $this->viewAllProductsService->handle();
-        $this->view->Products = $response->get();
+        $productRepository = $this->di->getShared('product_repository');
+        $service = new ViewAllProductService($productRepository);
 
-        return $this->view->pick('home');
+        $response = $service->handle();
+        $this->view->setVar('products', $response->products);
+           return $this->view->pick('home');
     }
 
     public function addPageAction()

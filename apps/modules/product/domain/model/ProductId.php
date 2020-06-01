@@ -1,6 +1,6 @@
 <?php
 
-namespace Phalcon\Init\ProductId\Domain\Model;
+namespace Phalcon\Init\Product\Domain\Model;
 
 
 
