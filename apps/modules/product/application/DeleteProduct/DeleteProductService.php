@@ -23,7 +23,7 @@ class DeleteProductService
         //$productfromdb= $this->ProductRepository->byId($productId);
         try {
             $response=$this->productRepository->deleteProductById($productId);
-            return new DeleteProductResponse($response,$productId->id());
+            return new DeleteProductResponse($response,"Product Telah Berhasil Dihapus");
         }
         catch(\Exception $e) {
             return new DeleteProductResponse($e->getMessage(), TRUE);

@@ -206,11 +206,14 @@
     </div>
     <div class="row">
     {% for product in products%}
+        <?php
+        $num = rand(1,12);
+        ?>
     	<div class="col-md-4">
     		<figure class="card card-product-grid">
     			<div class="img-wrap">
     				<span class="badge badge-danger"> NEW </span>
-    				<img src="{{ url('/public/assets/images/items/1.jpg')}}">
+    				<img src="http://localhost/DDD-TokoOnline/public/assets/images/items/<?php echo $num?>.jpg">
     				<a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     			</div> <!-- img-wrap.// -->
     			<figcaption class="info-wrap">
@@ -218,13 +221,14 @@
     					<a href="#" class="title">{{ product['name']}}</a>
     					<div class="price-wrap mt-2">
     						<span class="price">{{ product['price']}}</span>
+                            <span>Stock: {{product['quantity']}}</span>
     						<!-- <del class="price-old">$1980</del> -->
     					</div> <!-- price-wrap.// -->
     				</div>
     				<a href="#" class="btn btn-block btn-primary">Add to cart </a>
                     <form action="{{url('/product/product/delete')}}" method="POST">
                     <input type="hidden" name="productId" value="{{product['id']}}">
-                    <button type="submit" class="btn btn-primary">Delete</button>
+                    <button type="submit" class="btn btn-warning">Delete</button>
                     </form>
     			</figcaption>
     		</figure>

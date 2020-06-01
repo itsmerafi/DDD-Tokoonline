@@ -47,7 +47,7 @@ $(document).ready(function() {
    	<div class="container">
    <div class="row align-items-center">
    	<div class="col-lg-2 col-4">
-   		<a href="#" class="brand-wrap">
+   		<a href="<?= $this->url->get('/') ?>" class="brand-wrap">
    			<img class="logo" src="<?= $this->url->get('/public/assets/images/logo.png') ?>">
    		</a> <!-- brand-wrap.// -->
    	</div>
@@ -66,7 +66,7 @@ $(document).ready(function() {
    	<div class="col-lg-4 col-sm-6 col-12">
    		<div class="widgets-wrap float-md-right">
    			<div class="widget-header  mr-3">
-   				<a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
+   				<a href="<?= $this->url->get('/cart') ?>" class="icon icon-sm rounded-circle border"><i class="fa fa-shopping-cart"></i></a>
    				<span class="badge badge-pill badge-danger notify">0</span>
    			</div>
    			<div class="widget-header icontext">
@@ -292,11 +292,14 @@ $(document).ready(function() {
     </div>
     <div class="row">
     <?php foreach ($products as $product) { ?>
+        <?php
+        $num = rand(1,12);
+        ?>
     	<div class="col-md-4">
     		<figure class="card card-product-grid">
     			<div class="img-wrap">
     				<span class="badge badge-danger"> NEW </span>
-    				<img src="<?= $this->url->get('/public/assets/images/items/1.jpg') ?>">
+    				<img src="http://localhost/DDD-TokoOnline/public/assets/images/items/<?php echo $num?>.jpg">
     				<a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     			</div> <!-- img-wrap.// -->
     			<figcaption class="info-wrap">
@@ -304,13 +307,14 @@ $(document).ready(function() {
     					<a href="#" class="title"><?= $product['name'] ?></a>
     					<div class="price-wrap mt-2">
     						<span class="price"><?= $product['price'] ?></span>
+                            <span>Stock: <?= $product['quantity'] ?></span>
     						<!-- <del class="price-old">$1980</del> -->
     					</div> <!-- price-wrap.// -->
     				</div>
     				<a href="#" class="btn btn-block btn-primary">Add to cart </a>
                     <form action="<?= $this->url->get('/product/product/delete') ?>" method="POST">
                     <input type="hidden" name="productId" value="<?= $product['id'] ?>">
-                    <button type="submit" class="btn btn-primary">Delete</button>
+                    <button type="submit" class="btn btn-warning">Delete</button>
                     </form>
     			</figcaption>
     		</figure>
