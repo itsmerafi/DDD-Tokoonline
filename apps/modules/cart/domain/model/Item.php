@@ -1,6 +1,7 @@
 <?php
 
-namespace Phalcon\Init\Cart\Domain;
+namespace Phalcon\Init\Cart\Domain\Model;
+use Phalcon\Init\Cart\Domain\Model\ItemDetail;
 
 class Item
 {

@@ -12,17 +12,6 @@ return array(
         'defaultAction' => 'index'
     ],
 
-    'dashboard' => [
-        'namespace' => 'Phalcon\Init\Dashboard',
-        'webControllerNamespace' => 'Phalcon\Init\Dashboard\Controllers\Web',
-        'apiControllerNamespace' => 'Phalcon\Init\Dashboard\Controllers\Api',
-        'className' => 'Phalcon\Init\Dashboard\Module',
-        'path' => APP_PATH . '/modules/dashboard/Module.php',
-        'defaultRouting' => false,
-        'defaultController' => 'dashboard',
-        'defaultAction' => 'index'
-    ],
-
 
     'cart' => [
         'namespace' => 'Phalcon\Init\Cart',
@@ -32,7 +21,7 @@ return array(
         'path' => APP_PATH . '/modules/cart/Module.php',
         'defaultRouting' => true,
         'defaultController' => 'cart',
-        'defaultAction' => 'Index'
+        'defaultAction' => 'showCart'
     ],
 
 
