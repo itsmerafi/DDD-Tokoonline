@@ -2,14 +2,18 @@
 
 namespace Phalcon\Init\Cart\Infrastructure;
 
-use Phalcon\Init\Cart\Domain\Cart;
-use Phalcon\Init\Cart\Domain\CartNotFoundException;
-use Phalcon\Init\Cart\Domain\CartRepository;
+use Phalcon\Init\Cart\Domain\Model\CartRepository;
+use Phalcon\Init\Cart\Domain\Model\Cart;
+use Phalcon\Init\Cart\Domain\Model\CartDetail;
+use Phalcon\Init\Cart\Domain\Item;
+use Phalcon\Init\Cart\Domain\ItemDetail;
+use Phalcon\Init\Cart\Domain\Price;
 
 class MemoryCartRepository implements CartRepository
 {
-
+    protected $di;
     private $carts = [];
+
 
     public function add(Cart $cart): void
     {

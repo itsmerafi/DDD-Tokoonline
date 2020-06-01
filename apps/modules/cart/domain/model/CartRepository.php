@@ -5,9 +5,11 @@ namespace Phalcon\Init\Cart\Domain;
 interface CartRepository
 {
 
-    public function add(Cart $cart): void;
+    public function addItem(Cart $cart);
 
-    public function get(string $id): Cart;
+    public function createCart(string cart_id) : Cart;
+
+    public function getById(string $id): Cart;
 
     public function remove(string $id): void;
 }
